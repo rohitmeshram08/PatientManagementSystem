@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-head">
+    <h1>
+        Invoice
+    </h1>
+</div>
+<div class="row" style="margin-bottom:10px;">
+
+    <div class="col-2">
+        <a href="@Url.Action("Invoice", "Invoicing")" class="my-buttn-w">Create Invoice</a>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Bill ID</th>
+            <th>Patient Name</th>
+            <th>Bill Date</th>
+            <th>Amount</th>
+            <th>PaymentStatus </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Billing  in ViewBag.list)
+        {
+            <tr>
+                <td>@Billing.BillID</td>
+                <td>@Billing.PatientName</td>
+                <td>@Billing.BillDate</td>
+                <td>@Billing.Amount</td>
+                <td>@Billing.PaymentStatus</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Invoicing", new { id =Billing.BillID })" class="edt-buttn">Edit</a>
+                    <a href="@Url.Action("Delete", "Invoicing", new { id = Billing.BillID })" class="dlt-buttn">Delete</a>
+                    @if(@Billing.PaymentStatus=="Paid")
+                    {
+                    <a href="@Url.Action("PrintInvoice", "Invoicing", new { billId = Billing.BillID })" class="print-buttn">Print</a>
+
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

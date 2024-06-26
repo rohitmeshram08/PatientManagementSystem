@@ -1,0 +1,49 @@
+﻿body {
+}
+
+.full-length-button {
+    width: 100%; /* Full width of the container */
+    padding: 10px; /* Padding for the button */
+    font-size: 16px; /* Font size for the button text */
+    background-color: #cc9966; /* Background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-align: center; /* Centered text */
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .full-length-button:hover {
+        background-color: #ff6633; /* Darker background on hover */
+        /* Darker background on hover */
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.9); /* Larger shadow on hover */
+        font-size: 18px;
+    }
+
+.footer {
+    margin-top: 20px;
+    background-color: #09192A; /* Set background color */
+    padding: 10px; /* Add some padding */
+    color: ghostwhite;
+    font-size: xx-large;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 1.8);
+}
+
+    .footer .tex {
+        text-align: center;
+        font-weight: 600;
+    }
+
+.sticky {
+    margin-top: 20px;
+    background-color: rebeccapurple; /* Set background color */
+    padding: 10px; /* Add some padding */
+    color: ghostwhite;
+    font-size: 30px;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 1.8);
+}

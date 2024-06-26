@@ -1,0 +1,65 @@
+﻿@model PatientManagementSoftware.Models.PatientViewModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-head">
+    <h1>
+        Patient Registration
+    </h1>
+</div>
+
+@using (Html.BeginForm("SavePatient", "Patient", FormMethod.Post, new { @class = "form-signin" }))
+{
+    @Html.AntiForgeryToken()
+
+    <h2 class="form-signin-heading"></h2>
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(model => model.Name, new { @class = "sr-only" })
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Enter Full Name", required = "required", autofocus = "autofocus" })
+        @Html.ValidationMessageFor(model=>model.Name,"")
+    </div>
+
+    <div class="datepicker form-group mb-2 form-outline ">
+        @Html.LabelFor(model => model.DateOfBirth, new { @class = "sr-only" })
+        @Html.TextBoxFor(model => model.DateOfBirth, new { @class = "form-control", type = "date", placeholder = "Enter Date of Birth", required = "required" })
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(model => model.ContactNumber, new { @class = "sr-only" })
+        @Html.TextBoxFor(model => model.ContactNumber, new { @class = "form-control", placeholder = "Contact Number ", pattern = "\\d{10}", title = "Please enter a 10-digit mobile number without any spaces ", required = "required", })
+    </div>
+
+   @* <div class="form-group mb-2">
+        @Html.LabelFor(model => model.Gender, new { @class = "sr-only" })
+        @Html.TextBoxFor(model => model.Gender, new { @class = "form-control", placeholder = "Gender", required = "required" })
+    </div>*@
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(model => model.Gender, new { @class = "form-label" })
+        @Html.DropDownListFor(model => model.Gender, new SelectList(new[]
+         {
+                new SelectListItem{Text="MALE", Value="MALE" },
+                new SelectListItem{Text="FEMALE", Value="FEMALE" },
+                new SelectListItem{Text="OTHER",Value="OTHER"}
+
+
+         }, "Value", "Text"), "Select Gender", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "form-text text-muted" })
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(model => model.Address, new { @class = "sr-only" })
+        @Html.TextBoxFor(model => model.Address, new { @class = "form-control", placeholder = " Enter Permenant Address", required = "required" })
+    </div>
+
+
+
+    <button class="btn btn-lg btn-primary btn-block mb-2" type="submit">Submit</button>
+}
+
+
+
+

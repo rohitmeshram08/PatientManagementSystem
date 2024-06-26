@@ -1,0 +1,70 @@
+﻿@model List<PatientManagementSoftware.Models.DoctorViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+   
+</style>
+<div class="page-head">
+    <h1> 
+        Doctor List
+    </h1>
+</div>
+<br/>
+<div class="row" style="margin-bottom:10px;">
+
+    <div class="col-2">
+        <a href="@Url.Action("Register", "Doctor")" class="my-buttn-w">Register Doctor</a>
+    </div>
+</div>
+<table class="table table-bordered">
+    <thead class="thead-myclass">
+        <tr>
+            <th>Doctor ID</th>
+            <th>Name</th>
+            <th>Specialization</th>
+            <th>Contact Number</th>
+            <th>Availability</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var doctor in Model)
+        {
+            <tr>
+                <td>@doctor.DoctorID</td>
+                <td>@doctor.Name</td>
+                <td>@doctor.Specialization</td>
+                <td>@doctor.ContactNumber</td>
+                <td>@doctor.Availability</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Doctor", new { DocID = doctor.DoctorID })" class="edt-buttn">Edit</a>
+                    <a href="@Url.Action("Delete", "Doctor", new { DocID = doctor.DoctorID })" class="dlt-buttn">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Warning !!!!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the Doctor's Details ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" id="" class="btn btn-primary" onclick="deleteDoctor()" data-dismiss="modal">Yes</button>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+

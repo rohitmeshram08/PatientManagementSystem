@@ -1,0 +1,76 @@
+﻿@model PatientManagementSoftware.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/login/style.css">
+
+    <style>
+        .btn-custom {
+            background-color: #00004d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 8px 16px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+            .btn-custom:hover {
+                background-color: #8b8bda;
+                transform: scale(1.05);
+                border: 2px solid white;
+            }
+        
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-signin", style = "display: flex; justify-content: center; align-items: center; height: 80vh;" }))
+    {
+        @Html.AntiForgeryToken()
+    <div style="background-color: transparent; padding: 40px; border-radius: 10px; backdrop-filter: blur(13px); box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); width: 400px; margin-top: 65px;">
+
+        <h2 class="form-signin-heading" style="text-align: center; color: #000000;"></h2>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username, new { @class = "sr-only" })
+            @Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = "Username", required = "required", autofocus = "autofocus" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, new { @class = "sr-only" })
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Password", required = "required" })
+        </div>
+       @* <div class="form-group text-center">
+            <button class="btn  btn-primary" type="submit">Login</button>
+            <a href="@Url.Action("Register","Login")" class="btn  btn-primary">
+                <i class="fas fa-user-check mr-lg-2"></i>
+                Register
+            </a>
+        </div>*@
+
+        <div class="form-group text-center">
+            <button class="btn btn-custom" type="submit">Login</button>
+            <a href="@Url.Action("Register","Login")" class="btn btn-custom">
+                <i class="fas fa-user-check mr-lg-2"></i>
+                Register
+            </a>
+            
+        </div>
+    </div>
+    }
+</body>
+</html>
+

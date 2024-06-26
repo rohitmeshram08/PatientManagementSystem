@@ -1,0 +1,144 @@
+﻿body {
+
+
+}
+.my-buttn-w {
+    background-color: #80d4ff; /* Green background */
+    border-radius: 20px;
+    border: none; /* Remove borders */
+    color: black; /* White text */
+    padding: 11px 13px; /* Some padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the button inline element */
+    font-size: 16px; /* Increase font size */
+    margin: 4px 2px; /* Add some margins */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    font-weight:700; /* Make font bold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+.my-button:hover {
+    background-color: black; /* Change background color on hover */
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+table thead {
+    background-color: #ffb3d9; /* Background color for thead */
+    font-weight: 600; /* Make the font slightly bold */
+}
+
+.thead-myclass {
+    background-color: #ffb3d9; /* Background color for thead */
+    font-weight: 600;
+
+}
+
+
+.eee h1 {
+    text-align: center;
+    padding: 13px;
+    text-shadow: 3px 3px grey;
+}
+
+.page-head {
+    background-color: #6C9498; /* Background color */
+    width: 650px;
+    height: 60px;
+    text-align: center;
+    margin: 0 auto; /* Center horizontally using margin */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    border-radius: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+    margin-bottom: 22px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.eee h1 {
+    margin-bottom:10px ; /* Remove default margin */
+    padding-bottom: 10px; /* Remove default padding */
+    text-shadow: 3px 3px grey; /* Text shadow */
+}
+
+.page-head:hover {
+    border: 1px solid black;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8); /* Add shadow effect */
+    transform: scale(1.1);
+}
+
+
+.edt-buttn {
+    background-color: #8cb3d9; /* Button background color */
+    color: black; /* Text color */
+    border: none; /* Remove borders */
+    padding: 4px 12px; /* Padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display inline-block */
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margin */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 2px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.3s; /* Transition effect */
+    text-decoration: none; /* Ensure no underline */
+} /* Transition effect */
+
+
+/* Hover effect for the edit button */
+    .edt-buttn:hover {
+        background-color: #4080bf; /* Darker green background on hover */
+        transform: scale(1.1); /* Slightly enlarge the button */
+        color: black;
+    }
+
+.dlt-buttn {
+    background-color: #ff4d4d; /* Button background color */
+    color: black; /* Text color */
+    border: none; /* Remove borders */
+    padding: 4px 12px; /* Padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display inline-block */
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margin */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 2px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.3s; /* Transition effect */
+    text-decoration: none; /* Ensure no underline */
+}
+/* Transition effect */
+
+    .dlt-buttn:hover {
+        background-color: #ff1a1a; /* Darker green background on hover */
+        transform: scale(1.1); /* Slightly enlarge the button */
+        color: black;
+    }
+
+.print-buttn {
+    background-color: #99ffcc; /* Button background color */
+    color: black; /* Text color */
+    border: none; /* Remove borders */
+    padding: 4px 12px; /* Padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display inline-block */
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margin */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 2px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.3s; /* Transition effect */
+    text-decoration: none;
+}
+    .print-buttn:hover {
+        background-color: #4dffa6; /* Darker green background on hover */
+        transform: scale(1.1); /* Slightly enlarge the button */
+        color: black;
+    }
+
+
+

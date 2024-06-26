@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap Styles-->
+    <link href="~/Content/assets/assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="~/Content/assets/assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="~/Content/assets/assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+    <link href="~/Content/btn-css/btn.css"  rel="stylesheet"/>
+
+    <link href="~/Content/LOGIN_ASSETS/css/style.css" rel="stylesheet" />
+
+    <link href="~/Content/LOGIN_ASSETS/css/style.css.map" />
+    <link href="~/Content/Invoice/style.css" />
+
+    <link href="~/Content/About/heading.css" />
+    <script src="~/Content/About/scrollar_jascript.js"></script>
+
+    <link href="~/Content/About/StyleSheet1.css" rel="stylesheet" />
+   <script src="~/Content/btn-css/JavaScript.js"></script>
+
+    <link href="~/Content/LOGIN_ASSETS/css/animate.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","Dashboard")">LOTUS</a>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-left">
+            </ul>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a  href="@Url.Action("About","Home")" aria-expanded="false">
+                        <i class="fa fa-adn fa-lg" style="font-size:22px;"></i><span style="font-size:17px;">bout</span>
+                    </a>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a href="@Url.Action("Logout","Login")" aria-expanded="false" style="font-size:17px;"><i class="fa fa-user fa-fw"></i>Logout</a>
+
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <!--/. NAV SIDE BAR START  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a href="@Url.Action("Index","Dashboard")" class="@((Request.Url.AbsolutePath==Url.Action("Index","Dashboard") ) ? "active-menu":"") "><i class="fa fa-dashboard fa-lg"></i> Dashboard</a>
+                    </li>
+
+
+                    <li>
+                        <a href="@Url.Action("Index","Doctor")" class="@((Request.Url.AbsolutePath==Url.Action("Index","Doctor") ) ? "active-menu":"")
+                           @((Request.Url.AbsolutePath==Url.Action("Register","Doctor") ) ? "active-menu":"")  
+                            @((Request.Url.AbsolutePath==Url.Action("Edit","Doctor") ) ? "active-menu":"")  "><i class="fa fa-stethoscope fa-lg"></i>Doctor</a>
+                    </li>
+
+                    
+                    <li>
+                        <a href="@Url.Action("Index","Patient")" class="@((Request.Url.AbsolutePath==Url.Action("Index","Patient") ) ? "active-menu":"")   @((Request.Url.AbsolutePath==Url.Action("Register","Patient") ) ? "active-menu":"")
+                     @((Request.Url.AbsolutePath==Url.Action("Edit","Patient") ) ? "active-menu":"")"><i class="fa fa-wheelchair fa-lg"></i>Patient</a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index","Appointment")" class="@((Request.Url.AbsolutePath==Url.Action("Index","Appointment") ) ? "active-menu":"")  @((Request.Url.AbsolutePath==Url.Action("BookAppointment","Appointment") ) ? "active-menu":"")
+                     @((Request.Url.AbsolutePath==Url.Action("EditAppointment","Appointment") ) ? "active-menu":"")"><i class="fa fa-pencil-square-o fa-lg"></i>Appointment</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Invoicing")" class="@((Request.Url.AbsolutePath==Url.Action("Index","Invoicing") ) ? "active-menu":"")    @((Request.Url.AbsolutePath==Url.Action("Invoice","Invoicing") ) ? "active-menu":"")  
+  @((Request.Url.AbsolutePath==Url.Action("Edit","Invoicing") ) ? "active-menu":"") "><i class="fa fa-file fa-lg"></i>Invoicing
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","MedicalRecords")" class="@((Request.Url.AbsolutePath==Url.Action("Index","MedicalRecords") ) ? "active-menu":"")    @((Request.Url.AbsolutePath==Url.Action("AddMedicalRecord","MedicalRecords") ) ? "active-menu":"")  
+  @((Request.Url.AbsolutePath==Url.Action("Edit","MedicalRecords") ) ? "active-menu":"")    "><i class="	fa fa-book fa-lg"></i>Medical Record</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- /. NAV SIDE END HERE  -->
+
+        <div id="page-wrapper">     
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            LoTus MediCare<small> Cure With the best</small>
+                        </h1>
+                    </div>
+                </div>
+                @RenderBody()
+                <!-- /. ROW  -->
+                <div class="row">
+
+                    <!-- /.col-lg-12 -->
+                </div>
+                <footer class="footer">
+
+                    <p class="tex"> <span class="typing-2"></span>“Healing Begins Here: Lotus Healthcare—Your Own Path to Wellness”</p>
+                    <!--<div class="address">
+        <p>Lotus Healthcare and Recovery Center</p>
+        <p>751 Central Park #212</p>
+        <p>Roseville, CA 95678</p>
+        </div>
+        <div class="about-me">-->
+                    <!-- Information about you -->
+                    <!--<p>About Me: I'm passionate about web development!</p>
+        </div>-->
+                </footer>
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="~/Content/assets/assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="~/Content/assets/assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="~/Content/assets/assets/js/jquery.metisMenu.js"></script>
+    <!-- Custom Js -->
+    <script src="~/Content/assets/assets/js/custom-scripts.js"></script>
+</body>
+</html>
+

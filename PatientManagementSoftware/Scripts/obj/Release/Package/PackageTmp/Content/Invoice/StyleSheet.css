@@ -1,0 +1,42 @@
+﻿body {
+}
+section {
+    display: flex;
+    align-items: center;
+}
+/* Styling for the project summary */
+.summary {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+/* Styling for the image */
+.project-image {
+    flex: 1;
+    padding: 20px;
+}
+
+.summary {
+    background-color: black;
+}
+
+.my-buttn-w {
+    background-color: #80d4ff; /* Green background */
+    border-radius: 20px;
+    border: none; /* Remove borders */
+    color: black; /* White text */
+    padding: 12px 22px; /* Some padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the button inline element */
+    font-size: 16px; /* Increase font size */
+    margin: 4px 2px; /* Add some margins */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    font-weight: bold; /* Make font bold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+    .my-button:hover {
+        background-color: #6cf9e1; /* Change background color on hover */
+        border: 2px solid black;
+    }

@@ -1,0 +1,56 @@
+﻿@model List< PatientManagementSoftware.Models.AppointmentViewModel>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+<div class="page-head">
+    <h1>
+        Appointment List
+    </h1>
+</div>
+
+    <div class="row" style="margin-bottom:10px;">
+
+        <div class="col-2">
+            <a href="@Url.Action("BookAppointment", "Appointment")" class="my-buttn-w">Register Appointment</a>
+        </div>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>AppoinmetID</th>
+                <th>Patient Name</th>
+                <th>Doctor Name</th>
+                <th>Appointment Date</th>
+                <th>Reason</th>
+                <th>Status </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var appointment in Model)
+            {
+                <tr>
+                    <td>@appointment.Id</td>
+                    <td>@appointment.PatientName</td>
+                    <td>@appointment.DoctorName</td>
+                    <td>@appointment.AppointmentDateTime</td>
+                    <td>@appointment.Reason</td>
+                    <td>@appointment.Status</td>
+                    <td>
+                        <a href="@Url.Action("EditAppointment", "Appointment", new { id = appointment.Id })" class="edt-buttn">Edit</a>
+                        <a href="@Url.Action("Delete", "Appointment", new { id = appointment.Id })" class="dlt-buttn">Delete</a>
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+
+
+
+

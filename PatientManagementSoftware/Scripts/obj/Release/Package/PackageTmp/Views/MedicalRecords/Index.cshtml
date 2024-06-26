@@ -1,0 +1,54 @@
+﻿@model List<PatientManagementSoftware.Models.MedicalRecordViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="page-head">
+    <h1>
+         Patient Medical Records 
+    </h1>
+</div>
+<br />
+<div class="row" style="margin-bottom:10px;">
+
+    <div class="col-2">
+        <a href="@Url.Action("AddMedicalRecord", "MedicalRecords")" class="my-buttn-w">Add Records</a>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Record ID</th>
+            <th>Patient ID</th>
+            <th>Doctor ID</th>
+            <th>Diagnosis</th>
+            <th>Treatment</th>
+            <th>Medications</th>
+            <th>Blood Group</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody class="t-boody">
+       @foreach (var medicalRecords in Model)
+        {
+            <tr>
+                <td>@medicalRecords.RecordID</td>
+                <td>@medicalRecords.PatientName</td>
+                <td>@medicalRecords.DoctorName</td>
+                <td>@medicalRecords.Diagnosis</td>
+                <td>@medicalRecords.Treatment</td>
+                <td>@medicalRecords.Medications</td>
+                <td>@medicalRecords.BloodGroup</td>
+
+                <td>
+                    <a href="@Url.Action("Edit", "MedicalRecords", new { id = medicalRecords.RecordID})" class="edt-buttn">Edit</a>
+                    <a href="@Url.Action("Delete", "MedicalRecords", new { id = medicalRecords.RecordID })" class="dlt-buttn">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

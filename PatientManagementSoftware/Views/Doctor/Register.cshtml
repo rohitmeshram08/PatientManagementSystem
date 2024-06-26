@@ -1,0 +1,76 @@
+﻿@model PatientManagementSoftware.Models.DoctorViewModel
+@{
+    ViewBag.Title = "Doctor Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-head">
+    <h1>
+        Doctor Registration
+    </h1>
+</div>
+<style>
+    .full-length-button {
+        width: 100%; /* Full width of the container */
+        padding: 10px; /* Padding for the button */
+        font-size: 16px; /* Font size for the button text */
+        background-color: #cc9966; /* Background color */
+        color: white; /* Text color */
+        border: none; /* No border */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        text-align: center; /* Centered text */
+        color: black;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+    }
+
+        .full-length-button:hover {
+            background-color: #ff6633; /* Darker background on hover */
+             /* Darker background on hover */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.9); /* Larger shadow on hover */
+        }
+</style>
+
+@using (Html.BeginForm("SaveDoctor", "Doctor")) // Specify controller and action
+{
+    @Html.AntiForgeryToken() // Add CSRF protection
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, "Name:")
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", required = "required", pattern = "(?=.{a-z}) (?=.{A_Z})", title = "Name canntot Contain any int value or Special Character" })
+        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Specialization, "Specialization:")
+        @Html.TextBoxFor(m => m.Specialization, new { @class = "form-control", required = "required", pattern = "(?=.{a-z})(?=.{A_Z})" })
+        @Html.ValidationMessageFor(m => m.Specialization, "", new { @class = "text-success" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ContactNumber, "Contact Number:")
+        @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control", placeholder = "Enter Contact Number", required = "required", pattern = "\\d{10}", title = "Mobile number must Contain 10 int digit Only" })
+        @Html.ValidationMessageFor(m => m.ContactNumber, "", new { @class = "text-danger" })
+    </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(m => m.Availability, "Availability:")
+        @Html.TextBoxFor(m => m.Availability, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Availability, "", new { @class = "text-danger" })
+    </div>*@
+    <div class="form-group mb-2">
+        @Html.LabelFor(model => model.Availability, new { @class = "form-label" })
+        @Html.DropDownListFor(model => model.Availability, new SelectList(new[]
+         {
+                new SelectListItem{Text="Available", Value="Available" },
+                new SelectListItem{Text="Un-Available", Value="un-Available" },
+
+
+         }, "Value", "Text"), "Select Doctor Availability", new { @class = "form-control" ,reuired="required"})
+        @Html.ValidationMessageFor(m => m.Availability, "", new { @class = "form-text text-muted" })
+    </div>
+
+    <input type="submit" value="Save Doctor" class="full-length-button" />
+}
+
+

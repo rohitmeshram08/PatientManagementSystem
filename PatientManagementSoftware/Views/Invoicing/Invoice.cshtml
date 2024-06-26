@@ -1,0 +1,73 @@
+﻿@model PatientManagementSoftware.Models.BillingViewModel
+@{
+    ViewBag.Title = "Invoice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .page-head {
+        background-color: #6C9498; /* Change background color to red */
+        width: 650px;
+        height: 60px;
+        margin: 0 auto; /* Center horizontally using margin */
+        display: flex; /* Use flexbox for vertical centering */
+        justify-content: center; /* Horizontally center the content */
+        align-items: center; /* Vertically center the content */
+        border-radius: 25px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8); /* Add shadow effect */
+        margin-bottom: 22px;
+    }
+
+    .eee h1 {
+        text-align: center;
+        padding: 13px;
+        text-shadow: 3px 3px grey;
+    }
+</style>
+
+<div class="page-head">
+    <h1>
+        Save Invoice Details
+    </h1>
+</div>
+
+@using (Html.BeginForm("CreateInvoice", "Invoicing", FormMethod.Post, new { @class = "form-signin" }))
+{
+    @Html.AntiForgeryToken()
+
+    <h2 class="form-signin-heading"></h2>
+
+    <div class="form-group mb-2">
+        <div class="form-group mb-2">
+            @Html.LabelFor(model => model.PatientID, new { @class = "sr-only" })
+            @Html.DropDownListFor(model => model.PatientID, new SelectList(ViewBag.PatientList, "PatientID", "Name"), "--Select Patient--", new { @class = "form-control", type = "text" })
+        </div>
+        @Html.ValidationMessageFor(m => m.PatientID, "", new { @class = "form-text text-muted" })
+
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(model => model.BillDate, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.BillDate, new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(m => m.BillDate, "", new { @class = "form-text text-muted" })
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(model => model.Amount, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Amount, new { @class = "form-control", type = "text" })
+        @Html.ValidationMessageFor(m => m.Amount, "", new { @class = "form-text text-muted" })
+    </div>
+
+  <div class="form-group mb-2">
+        @Html.LabelFor(model => model.PaymentStatus, new { @class = "form-label" })
+        @Html.DropDownListFor(model => model.PaymentStatus,new SelectList(new[]
+         {
+                new SelectListItem{Text="Paid", Value="Paid" },
+                new SelectListItem{Text="UnPaid", Value="UnPaid" },
+
+
+         },"Value","Text"),"Select Payment Stattus", new {@class="form-control"})
+        @Html.ValidationMessageFor(m => m.PaymentStatus, "", new { @class = "form-text text-muted" })
+    </div>
+
+    <button class="full-length-button" type="submit">Submit</button>
+}

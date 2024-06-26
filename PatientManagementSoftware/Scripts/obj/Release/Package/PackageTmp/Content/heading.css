@@ -1,0 +1,23 @@
+﻿body 
+{
+}
+    
+    .page-head{
+    background-color: #6C9498; /* Change background color to red */
+    width: 650px;
+    height: 60px;
+    margin: 0 auto; /* Center horizontally using margin */
+    display: flex; /* Use flexbox for vertical centering */
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    border-radius: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8); /* Add shadow effect */
+    margin-bottom:22px;
+}
+
+.eee h1 {
+    text-align: center;
+    padding: 13px;
+    text-shadow:3px 3px grey;
+}
+
